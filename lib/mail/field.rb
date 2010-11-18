@@ -31,7 +31,7 @@ module Mail
                             mime-version received references reply-to
                             resent-bcc resent-cc resent-date resent-from
                             resent-message-id resent-sender resent-to
-                            return-path sender to ]
+                            return-path sender to path]
 
     KNOWN_FIELDS = STRUCTURED_FIELDS + ['comments', 'subject']
     
@@ -129,7 +129,7 @@ module Mail
                       message-id in-reply-to references
                       subject comments keywords
                       mime-version content-type content-transfer-encoding
-                      content-location content-disposition content-description ]
+                      content-location content-disposition content-description]
     
     private
     
@@ -212,6 +212,8 @@ module Mail
         ContentIdField.new(value, charset)
       when /^content-location$/i
         ContentLocationField.new(value, charset)
+      when /^path$/i
+        PathField.new(value, charset)
       else 
         OptionalField.new(name, value, charset)
       end
