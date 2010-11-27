@@ -31,7 +31,7 @@ module Mail
                             mime-version received references reply-to
                             resent-bcc resent-cc resent-date resent-from
                             resent-message-id resent-sender resent-to
-                            return-path sender to path]
+                            return-path sender to path newsgroups]
 
     KNOWN_FIELDS = STRUCTURED_FIELDS + ['comments', 'subject']
     
@@ -214,6 +214,8 @@ module Mail
         ContentLocationField.new(value, charset)
       when /^path$/i
         PathField.new(value, charset)
+      when /^newsgroups$/i
+        NewsgroupsField.new(value, charset)
       else 
         OptionalField.new(name, value, charset)
       end

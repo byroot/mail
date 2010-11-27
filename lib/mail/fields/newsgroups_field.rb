@@ -2,12 +2,12 @@
 require 'mail/fields/structured_field'
 
 module Mail
-  class PathField < StructuredField
+  class NewsgroupsField < StructuredField
     
-    FIELD_NAME = 'path'
-    CAPITALIZED_FIELD = 'Path'
+    FIELD_NAME = 'newsgroups'
+    CAPITALIZED_FIELD = 'Newsgroups'
     
-    attr_reader :hosts
+    attr_reader :groups
     
     def initialize(value = nil, charset = 'ascii')
       self.charset = charset
@@ -17,7 +17,7 @@ module Mail
     end
     
     def parse(val = value)
-      @hosts = val.split('!')
+      @groups = val.split(',')
     end
     
     def encoded
