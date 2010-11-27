@@ -18,6 +18,7 @@ module Mail
   autoload :KeywordsField, 'mail/fields/keywords_field'
   autoload :MessageIdField, 'mail/fields/message_id_field'
   autoload :MimeVersionField, 'mail/fields/mime_version_field'
+  autoload :NewsgroupsField, 'mail/fields/newsgroups_field'
   autoload :PathField, 'mail/fields/path_field'
   autoload :ReceivedField, 'mail/fields/received_field'
   autoload :ReferencesField, 'mail/fields/references_field'
